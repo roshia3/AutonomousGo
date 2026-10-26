@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutonomousGo — Smarter Rides. Smarter Cities.</title>
+  <meta name="description" content="An autonomous mobility technology company developing a ride-hailing platform built for self-driving electric vehicles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="AutonomousGo home">
+        <span class="nav__logo-dot" aria-hidden="true"></span>
+        AutonomousGo
+      </a>
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="mission.html">Mission &amp; Values</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__eyebrow">Autonomous Mobility Platform</span>
+          <h1 class="hero__title" id="hero-heading">Smarter Rides.<br>Smarter Cities.</h1>
+          <p class="hero__subtitle">Autonomous mobility, designed around every journey.</p>
+          <a href="#who-we-are" class="hero__cta">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3l5 5-5 5M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHO WE ARE ========== -->
+    <section class="section" id="who-we-are" aria-labelledby="who-heading">
+      <div class="container">
+        <div class="split">
+          <div class="split--text">
+            <p class="section__label">Who We Are</p>
+            <h2 class="section__heading" id="who-heading">Built for the next era of transportation</h2>
+            <p>AutonomousGo is an autonomous mobility technology company developing a ride-hailing platform built specifically for self-driving electric vehicles. Inspired by the growing possibilities of autonomous transportation, we aim to make ride-booking more convenient, efficient, and reliable through intelligent vehicle dispatch and fleet management.</p>
+            <p>Unlike traditional ride-hailing platforms, our system is designed around the operational needs of autonomous electric fleets, combining passenger convenience with battery-aware vehicle assignments and real-time fleet coordination.</p>
+          </div>
+          <div>
+            <div class="notice">
+              <span class="notice__icon" aria-hidden="true">ℹ️</span>
+              <div>
+                <strong>Prototype Notice</strong><br>
+                Our initial prototype, planned for December 31, 2026, will demonstrate the platform using simulated vehicle and trip data. This first release will not offer actual transportation services. Future commercial deployment will be explored subject to vehicle integration, operational testing, and regulatory approval.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== OUR MISSION ========== -->
+    <section class="section section--alt" aria-labelledby="mission-heading">
+      <div class="container">
+        <p class="section__label">Our Mission</p>
+        <h2 class="section__heading" id="mission-heading">Why we're building this</h2>
+        <p class="section__intro">Our mission is to make autonomous transportation more accessible, reliable, and efficient through intelligent ride-matching technology. By connecting passengers with electric autonomous vehicles while optimizing fleet operations, we aim to support a smarter and more sustainable future for urban mobility.</p>
+        <a href="mission.html" style="display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.95rem;color:var(--graphite);border-bottom:2px solid var(--green);padding-bottom:.1rem;">
+          Read our mission &amp; values
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== OUR PLATFORM ========== -->
+    <section class="section" aria-labelledby="platform-heading">
+      <div class="container">
+        <p class="section__label">Our Platform</p>
+        <h2 class="section__heading" id="platform-heading">A better way to connect people and autonomous vehicles</h2>
+        <p class="section__intro">Our platform brings together a passenger-facing mobile application and a fleet management dashboard to support the next generation of ride-hailing services.</p>
+        <a href="products.html" style="display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.95rem;color:var(--graphite);border-bottom:2px solid var(--green);padding-bottom:.1rem;margin-bottom:2rem;">
+          Explore our products
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <div class="split">
+          <div>
+            <h3 style="margin-bottom:.75rem;">For Passengers</h3>
+            <p>Passengers can request rides, view estimated fares and arrival times, and track assigned vehicles through a simple mobile interface.</p>
+          </div>
+          <div>
+            <h3 style="margin-bottom:.75rem;">For Fleet Operators</h3>
+            <p>Our web-based dashboard provides visibility into vehicle availability, charging status, battery levels, and ongoing trips, helping fleets operate more efficiently.</p>
+          </div>
+        </div>
+
+        <p style="margin-top:1.5rem;color:var(--graphite-lt);font-size:.93rem;">Behind the scenes, an AI-assisted dispatch system evaluates vehicle proximity, battery levels, driving range, trip distance, and traffic conditions to identify suitable vehicles for each journey.</p>
+      </div>
+    </section>
+
+    <!-- ========== KEY FEATURES ========== -->
+    <section class="section section--ice" aria-labelledby="features-heading">
+      <div class="container">
+        <p class="section__label">Key Features</p>
+        <h2 class="section__heading" id="features-heading">What makes our platform different</h2>
+        <p class="section__intro">Every aspect of the platform is designed around the operational realities of autonomous electric fleets.</p>
+
+        <div class="features-grid">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">🧠</div>
+            <h3 class="card__title">Intelligent Ride Matching</h3>
+            <p class="card__body">Our AI-assisted matching system evaluates passenger location, vehicle proximity, battery level, estimated driving range, trip distance, traffic conditions, and availability to identify suitable autonomous vehicles.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">🔋</div>
+            <h3 class="card__title">Battery-Aware Dispatching</h3>
+            <p class="card__body">The platform considers each vehicle's estimated remaining driving range and required battery reserve before assigning a trip, helping prevent unsuitable vehicle assignments.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">⏱️</div>
+            <h3 class="card__title">Dynamic ETA &amp; Fare Estimation</h3>
+            <p class="card__body">Passengers can view estimated pickup times, trip durations, and fares based on factors such as travel distance, traffic conditions, and demand.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">📍</div>
+            <h3 class="card__title">Ride Booking &amp; Real-Time Updates</h3>
+            <p class="card__body">Passengers can enter pickup and drop-off locations, request rides, review fare estimates, and follow their assigned vehicle's location and trip status.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">📊</div>
+            <h3 class="card__title">Fleet Monitoring &amp; Management</h3>
+            <p class="card__body">Fleet operators can monitor vehicle locations, battery percentages, charging status, availability, and current trip assignments through a centralized dashboard.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">⚡</div>
+            <h3 class="card__title">Charging &amp; Availability Management</h3>
+            <p class="card__body">Vehicles requiring charging or temporarily unavailable for service can be excluded from ride assignments until they are ready to operate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BUILT FOR WHAT'S NEXT ========== -->
+    <section class="section" aria-labelledby="next-heading">
+      <div class="container">
+        <p class="section__label">What's Next</p>
+        <h2 class="section__heading" id="next-heading">Built for what's next</h2>
+        <p>Our initial prototype, planned for December 31, 2026, will demonstrate the platform using simulated vehicle and trip data. While this first release will not offer actual transportation services, it will establish the foundation for future autonomous ride-hailing operations.</p>
+        <p style="margin-top:1rem;">Future commercial deployment will be explored in selected geographic areas, subject to vehicle integration, operational testing, and regulatory approval.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;" aria-hidden="true"></span>
+        AutonomousGo
+      </div>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="mission.html">Mission &amp; Values</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+      <p style="font-size:.82rem;">© 2026 AutonomousGo. Informational prototype.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav__toggle');
+    const links  = document.querySelector('.nav__links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // Close menu on link click (mobile)
+    links.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      })
+    );
+  </script>
+
+</body>
+</html>

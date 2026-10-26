@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — AutonomousGo</title>
+  <meta name="description" content="Explore the AutonomousGo passenger app and fleet management dashboard — an intelligent platform built for autonomous electric ride-hailing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Products-page local styles ── */
+
+    /* Storyboard */
+    .storyboard {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      align-items: start;
+    }
+
+    .storyboard::before {
+      content: '';
+      position: absolute;
+      top: 42px;
+      left: calc(10% + 28px);
+      right: calc(10% + 28px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--ice-blue));
+      z-index: 0;
+    }
+
+    .story-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-step__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 6px var(--white);
+    }
+
+    .story-step__num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--graphite-lt);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+    }
+
+    .story-step__title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--graphite);
+    }
+
+    .story-step__body {
+      font-size: 0.82rem;
+      color: var(--graphite-lt);
+      max-width: none;
+      line-height: 1.5;
+    }
+
+    /* Mockup panels */
+    .mockup-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .mockup-panel {
+      background: var(--white);
+      border: 1px solid var(--silver);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .mockup-panel__header {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mockup-panel__header--green {
+      background: var(--green);
+      color: var(--graphite);
+    }
+
+    .mockup-panel__header--ice {
+      background: var(--ice-blue);
+      color: var(--graphite);
+    }
+
+    .mockup-panel__body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .mockup-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-sm);
+      background: var(--mint);
+      font-size: 0.88rem;
+    }
+
+    .mockup-row__label {
+      color: var(--graphite-lt);
+      font-weight: 500;
+    }
+
+    .mockup-row__value {
+      font-weight: 700;
+      color: var(--graphite);
+    }
+
+    .mockup-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+    }
+
+    .mockup-status--assigned {
+      background: var(--green);
+      color: var(--graphite);
+    }
+
+    .mockup-status--charging {
+      background: var(--ice-blue);
+      color: var(--graphite);
+    }
+
+    .mockup-status--trip {
+      background: #fff3cd;
+      color: #7a5c00;
+    }
+
+    .mockup-vehicle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-sm);
+      background: var(--mint);
+      gap: 0.75rem;
+    }
+
+    .mockup-vehicle-row__info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .mockup-vehicle-row__name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--graphite);
+    }
+
+    .battery-bar {
+      height: 6px;
+      width: 80px;
+      background: rgba(37,50,56,.12);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .battery-bar__fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--green);
+    }
+
+    .battery-bar__fill--low {
+      background: #f0a500;
+    }
+
+    .mockup-disclaimer {
+      font-size: 0.75rem;
+      color: var(--graphite-lt);
+      text-align: center;
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* Differentiators */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .diff-card {
+      background: var(--white);
+      border: 1px solid var(--silver);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .diff-card__icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      display: block;
+    }
+
+    .diff-card__title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .diff-card__body {
+      font-size: 0.93rem;
+      color: var(--graphite-lt);
+      max-width: none;
+    }
+
+    /* Product feature lists */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.93rem;
+      color: var(--graphite-lt);
+    }
+
+    .feature-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      margin-top: 0.42em;
+    }
+
+    .feature-list li strong {
+      color: var(--graphite);
+    }
+
+    /* Roadmap timeline */
+    .roadmap-box {
+      background: linear-gradient(135deg, var(--mint), var(--ice-blue));
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      border: 1px solid var(--silver);
+    }
+
+    /* Responsive overrides */
+    @media (max-width: 900px) {
+      .diff-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .storyboard {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .storyboard::before { display: none; }
+
+      .story-step {
+        flex-direction: row;
+        text-align: left;
+        gap: 1rem;
+        padding: 0;
+      }
+
+      .story-step__icon { flex-shrink: 0; margin-bottom: 0; }
+
+      .story-step__body { max-width: 52ch; }
+
+      .mockup-wrapper { grid-template-columns: 1fr; }
+
+      .diff-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="AutonomousGo home">
+        <span class="nav__logo-dot" aria-hidden="true"></span>
+        AutonomousGo
+      </a>
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active" aria-current="page">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="mission.html">Mission &amp; Values</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container page-header__content">
+        <p class="section__label">Our Products</p>
+        <h1 id="page-title">Intelligent mobility, from ride request to fleet management.</h1>
+        <p style="margin-top:.9rem;color:var(--graphite-lt);max-width:68ch;font-size:1.05rem;">We're developing a platform built for autonomous electric ride-hailing. It brings together a straightforward passenger experience and the operational tools needed to coordinate a fleet of self-driving electric vehicles.</p>
+        <div class="notice" style="margin-top:1.75rem;max-width:68ch;">
+          <span class="notice__icon" aria-hidden="true">ℹ️</span>
+          <div>Our initial prototype uses simulated vehicle and trip data to demonstrate how these systems work together. It will not provide real transportation services.</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== PASSENGER APP ========== -->
+    <section class="section" aria-labelledby="app-heading">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="section__label">Passenger App</p>
+            <h2 class="section__heading" id="app-heading">A simpler way to plan your next ride.</h2>
+            <p>Our passenger-facing mobile app is designed to make requesting an autonomous ride feel familiar and intuitive. Riders enter their pickup location and destination, review an estimated fare and pickup time, and follow their assigned vehicle as the trip progresses.</p>
+
+            <ul class="feature-list" aria-label="Passenger app planned features">
+              <li><strong>Ride requests:</strong> Enter pickup and drop-off locations and request a ride.</li>
+              <li><strong>Upfront estimates:</strong> Review estimated fares, pickup times, and trip durations.</li>
+              <li><strong>Vehicle tracking:</strong> View the assigned vehicle's simulated location and trip status.</li>
+              <li><strong>Live updates:</strong> See refreshed arrival estimates as conditions change.</li>
+            </ul>
+          </div>
+
+          <!-- Passenger App Mockup -->
+          <div>
+            <div class="mockup-panel" role="img" aria-label="Illustrative passenger app preview showing a sample ride request with simulated data">
+              <div class="mockup-panel__header mockup-panel__header--green">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 8 12 8 12s8-6.75 8-12c0-4.42-3.58-8-8-8z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Passenger App
+              </div>
+              <div class="mockup-panel__body">
+                <div class="mockup-row">
+                  <span class="mockup-row__label">Pickup</span>
+                  <span class="mockup-row__value">Downtown</span>
+                </div>
+                <div class="mockup-row">
+                  <span class="mockup-row__label">Destination</span>
+                  <span class="mockup-row__value">University</span>
+                </div>
+                <div class="mockup-row">
+                  <span class="mockup-row__label">Estimated fare</span>
+                  <span class="mockup-row__value">Example only</span>
+                </div>
+                <div class="mockup-row">
+                  <span class="mockup-row__label">ETA</span>
+                  <span class="mockup-row__value">Example only</span>
+                </div>
+                <div class="mockup-row" style="background:var(--ice-blue);">
+                  <span class="mockup-row__label">Status</span>
+                  <span class="mockup-status mockup-status--assigned">● Vehicle assigned</span>
+                </div>
+              </div>
+            </div>
+            <p class="mockup-disclaimer">Illustrative prototype preview — simulated data</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FLEET DASHBOARD ========== -->
+    <section class="section section--alt" aria-labelledby="fleet-heading">
+      <div class="container">
+
+        <div style="max-width:680px;margin-bottom:2.5rem;">
+          <h2 class="section__heading" id="fleet-heading">An Intelligent Dashboard Built For Cars of the Future</h2>
+        </div>
+
+        <!-- Full-width dashboard screenshot -->
+        <div style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--silver);box-shadow:var(--shadow-md);background:var(--white);">
+          <img
+            src="images/vehicle-fleet.png"
+            alt="Fleet management dashboard UI showing vehicle statuses, battery levels, and trip assignments"
+            style="width:100%;height:auto;display:block;"
+          />
+        </div>
+        <p class="mockup-disclaimer" style="margin-top:.75rem;">Illustrative prototype preview — simulated data</p>
+
+      </div>
+    </section>
+
+    <!-- ========== WHAT MAKES IT DIFFERENT ========== -->
+    <section class="section section--ice" aria-labelledby="diff-heading">
+      <div class="container">
+        <p class="section__label">What Makes Our Platform Different</p>
+        <h2 class="section__heading" id="diff-heading">Built around how autonomous fleets actually operate</h2>
+
+        <div class="diff-grid">
+          <div class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">🧠</span>
+            <h3 class="diff-card__title">Intelligent Ride Matching</h3>
+            <p class="diff-card__body">Rather than assigning the nearest vehicle alone, our AI-assisted dispatch approach considers passenger location, vehicle proximity, availability, trip distance, traffic conditions, and estimated driving range.</p>
+          </div>
+
+          <div class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">🔋</span>
+            <h3 class="diff-card__title">Battery-Aware Dispatch</h3>
+            <p class="diff-card__body">Before a vehicle is assigned, the system checks whether its estimated range can cover the trip while maintaining a required battery reserve. Vehicles that are charging or unavailable are excluded from matching.</p>
+          </div>
+
+          <div class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">🔗</span>
+            <h3 class="diff-card__title">Connected Passenger &amp; Fleet Experiences</h3>
+            <p class="diff-card__body">The passenger app and operator dashboard are designed around the same trip and vehicle information, so riders can follow their journey while operators monitor fleet activity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOW A RIDE WORKS — STORYBOARD ========== -->
+    <section class="section" aria-labelledby="storyboard-heading">
+      <div class="container">
+        <p class="section__label">How a Ride Works</p>
+        <h2 class="section__heading" id="storyboard-heading">From request to arrival — a preview of the experience.</h2>
+        <p class="section__intro" style="margin-bottom:3.5rem;">A step-by-step look at how our platform connects a ride request to a completed journey, using simulated vehicles and data.</p>
+
+        <div class="storyboard" role="list" aria-label="Five-step ride process">
+
+          <!-- Step 1 -->
+          <div class="story-step" role="listitem">
+            <div class="story-step__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="11" r="4" stroke="#B8E6C1" stroke-width="2.2" fill="none"/>
+                <path d="M14 3C9.03 3 5 7.03 5 12c0 6.56 9 15 9 15s9-8.44 9-15c0-4.97-4.03-9-9-9z" stroke="#253238" stroke-width="2" fill="none"/>
+                <path d="M8 22h12" stroke="#B8E6C1" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="story-step__num">Step 1</p>
+              <p class="story-step__title">Request a ride</p>
+              <p class="story-step__body">A passenger enters a pickup point and destination in the mobile app.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="story-step" role="listitem">
+            <div class="story-step__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect x="4" y="11" width="20" height="9" rx="2" stroke="#253238" stroke-width="2" fill="none"/>
+                <path d="M24 14.5v2" stroke="#253238" stroke-width="2" stroke-linecap="round"/>
+                <rect x="7" y="14" width="8" height="3" rx="1" fill="#B8E6C1"/>
+                <path d="M10 8h8" stroke="#B8E6C1" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="20" cy="8" r="2" fill="#D9F0FA" stroke="#253238" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div>
+              <p class="story-step__num">Step 2</p>
+              <p class="story-step__title">Find a suitable vehicle</p>
+              <p class="story-step__body">The dispatch system evaluates nearby available vehicles, estimated battery range, trip distance, traffic, and reserve requirements.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="story-step" role="listitem">
+            <div class="story-step__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect x="4" y="6" width="20" height="16" rx="2.5" stroke="#253238" stroke-width="2" fill="none"/>
+                <path d="M8 11h5" stroke="#B8E6C1" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 15h8" stroke="#C0C0C0" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="20" cy="11" r="2.5" fill="#B8E6C1"/>
+                <path d="M19 11l.8.8 1.7-1.6" stroke="#253238" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="story-step__num">Step 3</p>
+              <p class="story-step__title">Review the assignment</p>
+              <p class="story-step__body">The passenger sees an assigned vehicle, estimated pickup time, trip duration, and fare estimate.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="story-step" role="listitem">
+            <div class="story-step__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M5 18l4-7h10l4 7H5z" stroke="#253238" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                <circle cx="9" cy="20" r="2" fill="#B8E6C1" stroke="#253238" stroke-width="1.5"/>
+                <circle cx="19" cy="20" r="2" fill="#B8E6C1" stroke="#253238" stroke-width="1.5"/>
+                <path d="M8 14h4v3H8z" fill="#D9F0FA"/>
+                <path d="M22 17l2-1" stroke="#B8E6C1" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="story-step__num">Step 4</p>
+              <p class="story-step__title">Follow the trip</p>
+              <p class="story-step__body">The app displays simulated vehicle movement and trip-status updates while the fleet dashboard tracks the assignment.</p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="story-step" role="listitem">
+            <div class="story-step__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="10" stroke="#B8E6C1" stroke-width="2" fill="none"/>
+                <path d="M9 14l3.5 3.5 6.5-7" stroke="#253238" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="story-step__num">Step 5</p>
+              <p class="story-step__title">Complete the journey</p>
+              <p class="story-step__body">The simulated trip ends, and the vehicle's availability and battery information are updated for future assignments.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROTOTYPE ROADMAP ========== -->
+    <section class="section section--alt" aria-labelledby="roadmap-heading">
+      <div class="container">
+        <p class="section__label">Prototype Roadmap</p>
+        <h2 class="section__heading" id="roadmap-heading">First demonstration target: December 31, 2026.</h2>
+
+        <div class="roadmap-box" style="margin-top:2rem;">
+          <p style="max-width:68ch;">Our first release is planned as a proof of concept using simulated vehicle and trip data. It will demonstrate the booking flow, intelligent matching, battery-aware dispatching, estimated fares and arrival times, and fleet monitoring.</p>
+
+          <div style="margin-top:1.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;">
+            <div style="background:rgba(255,255,255,.7);border-radius:var(--radius-sm);padding:1rem 1.25rem;border:1px solid rgba(192,192,192,.4);">
+              <p style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite-lt);margin-bottom:.3rem;">Included</p>
+              <ul style="display:flex;flex-direction:column;gap:.3rem;font-size:.88rem;color:var(--graphite);">
+                <li>✓ Ride booking flow</li>
+                <li>✓ Intelligent vehicle matching</li>
+                <li>✓ Battery-aware dispatching</li>
+                <li>✓ Fare &amp; ETA estimates</li>
+                <li>✓ Fleet monitoring dashboard</li>
+              </ul>
+            </div>
+            <div style="background:rgba(255,255,255,.7);border-radius:var(--radius-sm);padding:1rem 1.25rem;border:1px solid rgba(192,192,192,.4);">
+              <p style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite-lt);margin-bottom:.3rem;">Out of scope for prototype</p>
+              <ul style="display:flex;flex-direction:column;gap:.3rem;font-size:.88rem;color:var(--graphite-lt);">
+                <li>✗ Real transportation services</li>
+                <li>✗ Live vehicle integration</li>
+                <li>✗ Payment processing</li>
+                <li>✗ User accounts</li>
+                <li>✗ Regulatory approval</li>
+              </ul>
+            </div>
+          </div>
+
+          <p style="margin-top:1.5rem;font-size:.88rem;color:var(--graphite-lt);">Future commercial deployment will be explored in selected geographic areas, subject to vehicle integration, operational testing, and regulatory approval.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CLOSING ========== -->
+    <section class="section" aria-labelledby="closing-heading">
+      <div class="container" style="text-align:center;">
+        <h2 id="closing-heading" style="font-size:clamp(1.4rem,3vw,2rem);max-width:22ch;margin-inline:auto;">Designed for the next generation of electric autonomous mobility.</h2>
+        <p style="margin-top:1rem;color:var(--graphite-lt);max-width:52ch;margin-inline:auto;">Learn more about the team building this platform or see what we're looking for in future collaborators.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+          <a href="about.html" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--graphite);color:var(--white);padding:.75rem 1.6rem;border-radius:var(--radius-md);font-weight:600;font-size:.95rem;transition:background var(--transition);">
+            Meet the team
+          </a>
+          <a href="careers.html" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--green);color:var(--graphite);padding:.75rem 1.6rem;border-radius:var(--radius-md);font-weight:600;font-size:.95rem;transition:background var(--transition);">
+            View open roles
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;" aria-hidden="true"></span>
+        AutonomousGo
+      </div>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="mission.html">Mission &amp; Values</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+      <p style="font-size:.82rem;">© 2026 AutonomousGo. Informational prototype.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav__toggle');
+    const links  = document.querySelector('.nav__links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      })
+    );
+  </script>
+
+</body>
+</html>

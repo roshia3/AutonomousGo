@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — AutonomousGo</title>
+  <meta name="description" content="Meet the founding team behind AutonomousGo, building the next generation of autonomous mobility technology." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="AutonomousGo home">
+        <span class="nav__logo-dot" aria-hidden="true"></span>
+        AutonomousGo
+      </a>
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
+        <li><a href="mission.html">Mission &amp; Values</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container page-header__content">
+        <p class="section__label">About Us</p>
+        <h1 id="page-title">Meet Our Team</h1>
+        <p style="margin-top:.75rem;color:var(--graphite-lt);max-width:58ch;font-size:1.05rem;">Our founding team brings together a shared background in software engineering and an interest in the future of autonomous transportation.</p>
+      </div>
+    </header>
+
+    <!-- ========== TEAM INTRO ========== -->
+    <section class="section" aria-labelledby="team-heading">
+      <div class="container">
+        <p class="section__intro" id="team-heading">Each member contributes to the technical development of our platform while taking responsibility for a different aspect of planning and business operations.</p>
+
+        <div class="team-grid">
+
+          <!-- Anastasia -->
+          <article class="team-card" aria-labelledby="card-anastasia-name">
+            <div class="team-card__photo" aria-label="Photo of Anastasia L.">
+              <img src="images/anastasia.png" alt="Anastasia L." />
+            </div>
+            <div class="team-card__info">
+              <h2 class="team-card__name" id="card-anastasia-name">Anastasia L.</h2>
+              <span class="team-card__role">Project Scheduling &amp; Coordination</span>
+              <p class="team-card__bio">Anastasia is a Computer Science student at the University of Washington who focuses on project scheduling and time management. She helps organize development timelines, track milestones, and coordinate tasks to keep the team on schedule.</p>
+            </div>
+          </article>
+
+          <!-- Roshia -->
+          <article class="team-card" aria-labelledby="card-roshia-name">
+            <div class="team-card__photo" aria-label="Photo of Roshia D.">
+              <img src="images/roshia.png" alt="Roshia D." />
+            </div>
+            <div class="team-card__info">
+              <h2 class="team-card__name" id="card-roshia-name">Roshia D.</h2>
+              <span class="team-card__role">Project Lead &amp; Business Requirements</span>
+              <p class="team-card__bio">Roshia is a Computer Science student at the University of Washington who focuses on defining project requirements and aligning technical development with business objectives. She also supports team coordination and project management when needed, helping ensure that the platform meets its intended goals.</p>
+            </div>
+          </article>
+
+          <!-- Isabelle -->
+          <article class="team-card" aria-labelledby="card-isabelle-name">
+            <div class="team-card__photo" aria-label="Photo of Isabelle N.">
+              <img src="images/isabelle.png" alt="Isabelle N." />
+            </div>
+            <div class="team-card__info">
+              <h2 class="team-card__name" id="card-isabelle-name">Isabelle N.</h2>
+              <span class="team-card__role">Budgeting &amp; Finance</span>
+              <p class="team-card__bio">Isabelle oversees the project's budgeting and financial planning. She focuses on estimating costs, managing financial resources, and ensuring that the team's development plans remain realistic and financially sustainable.</p>
+            </div>
+          </article>
+
+          <!-- Nash -->
+          <article class="team-card" aria-labelledby="card-nash-name">
+            <div class="team-card__photo" aria-label="Photo of Nash K.">
+              <img src="images/nash.png" alt="Nash K." />
+            </div>
+            <div class="team-card__info">
+              <h2 class="team-card__name" id="card-nash-name">Nash K.</h2>
+              <span class="team-card__role">Market Research &amp; Analysis</span>
+              <p class="team-card__bio">Nash is responsible for market research and competitive analysis. He examines industry trends, customer needs, and developments in autonomous transportation to help guide the team's business strategy and product decisions.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;" aria-hidden="true"></span>
+        AutonomousGo
+      </div>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="mission.html">Mission &amp; Values</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+      <p style="font-size:.82rem;">© 2026 AutonomousGo. Informational prototype.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav__toggle');
+    const links  = document.querySelector('.nav__links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      })
+    );
+  </script>
+
+</body>
+</html>
